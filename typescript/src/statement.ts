@@ -1,8 +1,6 @@
-type Plays = {
-  [key: string]: {
-    name: string;
-    type: string;
-  };
+type Play = {
+  name: string;
+  type: string;
 };
 
 type Performance = {
@@ -15,7 +13,7 @@ type Invoice = {
   performances: Performance[];
 };
 
-function statement(invoice: Invoice, plays: Plays) {
+export function statement(invoice: Invoice, plays: Record<string, Play>) {
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
@@ -59,5 +57,3 @@ function statement(invoice: Invoice, plays: Plays) {
   result += `You earned ${volumeCredits} credits\n`;
   return result;
 }
-
-export { statement };
