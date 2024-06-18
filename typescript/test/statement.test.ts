@@ -16,3 +16,23 @@ test("statement with new play types", () => {
     statement(invoice, plays);
   }).toThrow(/unknown type/);
 });
+
+function invoice() {
+  return {
+    "customer": "BigCo",
+      "performances": [
+        {
+          "playID": "hamlet",
+          "audience": 55
+        },
+        {
+          "playID": "as-like",
+          "audience": 35
+        },
+        {
+          "playID": "othello",
+          "audience": 40
+        }
+      ]
+    };
+}
