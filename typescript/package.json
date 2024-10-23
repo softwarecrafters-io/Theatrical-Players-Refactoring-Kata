@@ -4,7 +4,8 @@
   "description": "Example from first chapter of 'Refactoring' by Martin Fowler, 2nd Edition (https://www.thoughtworks.com/books/refactoring2)",
   "scripts": {
     "test": "jest",
-    "type-check": "tsc --noEmit"
+    "compile": "tsc --noEmit",
+    "compile:watch": "tsc --noEmit --watch"
   },
   "repository": {
     "type": "git",
