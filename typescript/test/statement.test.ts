@@ -1,12 +1,12 @@
 import { statement } from "../src/statement";
 
-test("generates a detailed statement for a given invoice with mixed play types", () => {
+test("generates a detailed statement for a given performance summary with mixed play types", () => {
   //arrange
-  const invoice = createAnExampleInvoice();
+  const aSummary = createAnPerformanceSummary();
   //act
   const plays = createAnExamplePlays();
   //assert
-  expect(statement(invoice, plays)).toEqual(`Statement for BigCo
+  expect(statement(aSummary, plays)).toEqual(`Statement for BigCo
  Hamlet: $650.00 (55 seats)
  As You Like It: $580.00 (35 seats)
  Othello: $500.00 (40 seats)
@@ -15,16 +15,16 @@ You earned 47 credits
 `);
 });
 
-test("does not allow an invoice with unknown play types", () => {
+test("does not allow an performance summary with unknown play types", () => {
   //arrange
-  const invoice = createAnotherExampleInvoice();
+  const invoice = createAnotherPerformanceSummary();
   //act
   const plays = createAnotherExamplePlays();
   //assert
   expect(() => statement(invoice, plays)).toThrow(/unknown type/);
 });
 
-function createAnExampleInvoice() {
+function createAnPerformanceSummary() {
   return {
     customer: "BigCo",
       performances: [
@@ -52,7 +52,7 @@ function createAnExamplePlays() {
   };
 }
 
-function createAnotherExampleInvoice() {
+function createAnotherPerformanceSummary() {
   return {
     customer: "BigCoII",
     performances: [

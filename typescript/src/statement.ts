@@ -8,22 +8,22 @@ type Performance = {
   audience: number;
 };
 
-type Invoice = {
+type PerformanceSummary = {
   customer: string;
   performances: Performance[];
 };
 
-export function statement(invoice: Invoice, plays: Record<string, Play>) {
+export function statement(summary: PerformanceSummary, plays: Record<string, Play>) {
   let totalAmount = 0;
   let volumeCredits = 0;
-  let result = `Statement for ${invoice.customer}\n`;
+  let result = `Statement for ${summary.customer}\n`;
   const format = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
     minimumFractionDigits: 2,
   }).format;
 
-  for (let perf of invoice.performances) {
+  for (let perf of summary.performances) {
     const play = plays[perf.playID];
     let thisAmount = 0;
     switch (play.type) {
